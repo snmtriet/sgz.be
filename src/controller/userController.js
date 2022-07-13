@@ -103,3 +103,16 @@ exports.getUserByNickName = catchAsync(async (req, res) => {
         },
     });
 });
+
+exports.searchUser = catchAsync(async (req, res) => {
+    const params = req.params.name;
+    const user = await User.find({
+        fullname: { $regex: params, $options: 'i' },
+    });
+    res.status(200).json({
+        status: 'success',
+        data: {
+            user,
+        },
+    });
+});

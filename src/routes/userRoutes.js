@@ -27,4 +27,5 @@ router.route('/').get(userController.getAllUser);
 //     .patch(userController.deleteUser);
 
 router.route('/:nickname').get(userController.getUserByNickName);
+router.route('/search/:name').get(userController.searchUser);
 module.exports = router;
