@@ -91,11 +91,8 @@ exports.getUser = catchAsync(async (req, res) => {
 });
 
 exports.getUserByNickName = catchAsync(async (req, res) => {
-    const params = req.params.nickname;
-    const nickName = params.slice(1, params.length);
-    const user = await User.findOne({
-        nickname: new RegExp('^' + nickName + '$', 'i'),
-    });
+    const id = req.params.id;
+    const user = await User.findById(id);
     res.status(200).json({
         status: 'success',
         data: {
