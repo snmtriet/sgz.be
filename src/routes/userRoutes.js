@@ -26,7 +26,7 @@ router.route('/').get(userController.getAllUser);
 //     .get(userController.getUser)
 //     .patch(userController.deleteUser);
 
-router.route('/:id/:nickname').get(userController.getUserByNickName);
 // router.route('/:id').get(userController.getUserById);
 router.route('/search/:name').get(userController.searchUser);
+router.route('/:id/:nickname').get(userController.getUserByNickName);
 module.exports = router;

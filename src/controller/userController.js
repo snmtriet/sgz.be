@@ -103,6 +103,7 @@ exports.getUserByNickName = catchAsync(async (req, res) => {
 
 exports.searchUser = catchAsync(async (req, res) => {
     const params = req.params.name;
+    console.log('🍕 ~ params', params);
     const user = await User.find({
         fullname: { $regex: params, $options: 'i' },
     });
